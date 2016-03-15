@@ -38,7 +38,7 @@ In your config/broadcasting.php file set the default driver to 'socketcluster' a
     'redisreliable' => [
       'driver' => 'redisreliable',
       'connection' => 'default',
-      'sub_min'     => env('BROADCAST_REDISRELIABLE_MIN_', 1), // Minimum subscribers required to get the broadcast (pub/sub) 
+      'sub_min'     => env('BROADCAST_REDISRELIABLE_MIN', 1), // Minimum subscribers required to get the broadcast (pub/sub) 
       'sub_list'   => env('BROADCAST_REDISRELIABLE_LIST', 'laravel_rr_list'), // List to add the broadcast payload and channel in case sub_min was not matched
     ],
     ...
