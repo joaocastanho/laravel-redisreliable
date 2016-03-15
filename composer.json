@@ -1,0 +1,21 @@
+{
+    "name": "trepatudo/laravel-redisreliable",
+    "description": "Redis broadcast driver with reliable delivery",
+    "keywords": ["redis", "reliable", "laravel", "broadcasting"],
+    "license": "MIT",
+    "homepage": "https://github.com/trepatudo/laravel-redisreliable",
+    "authors": [
+        {
+            "name": "Marco Silva",
+            "email": "dev@marcosilva.pt"
+        }
+    ],
+    "require": {
+        "laravel/framework": "5.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "RedisReliableDriver\\": "src/"
+        }
+    }
+}
