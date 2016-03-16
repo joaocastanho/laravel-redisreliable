@@ -1,7 +1,7 @@
 Laravel Redis Reliable Broadcasting Driver
 ------------------------------------------
 
-Same as RedisBroadcaster from illuminate/broadcasting but allows a customization to ensure at least 1 subscriber has received the event, otherwise adds it into a queue.
+Same as RedisBroadcaster from illuminate/broadcasting but allows a customization to assure at least 1 subscriber has received the event, otherwise adds it into a list.
 
 
 Requirements
@@ -28,7 +28,7 @@ In your config/app.php file add the following provider to your service providers
 ]
 ```
 
-In your config/broadcasting.php file set the default driver to 'socketcluster' and add the connection configuration like so:
+In your config/broadcasting.php file set the default driver to 'redisreliable' and add the connection configuration like so:
 
 ```php
 'default' => 'redisreliable',

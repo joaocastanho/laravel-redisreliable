@@ -60,16 +60,16 @@ class RedisReliableBroadcaster implements Broadcaster
     {
         $connection = $this->redis->connection($this->connection);
 
-        $payload = json_encode(['event' => $event, 'data' => $payload]);
+        $data = json_encode(['event' => $event, 'data' => $payload]);
 
         foreach ($channels as $channel) {
-            $subscribers = $connection->publish($channel, $payload);
-            // Add it to a list
+            $subscribers = $connection->publish($channel, $data);
+            // Enough subscribers?
             if ($subscribers < $this->minSubscribers) {
                 // Add channel
-                $payload = json_encode(['channel' => $channel, 'event' => $event, 'data' => $payload]);
-                // Add to list name
-                $connection->rpush($this->listName, $payload);
+                $data = json_encode(['channel' => $channel, 'event' => $event, 'data' => $payload]);
+                // Add to list
+                $connection->rpush($this->listName, $data);
             }
 
         }
